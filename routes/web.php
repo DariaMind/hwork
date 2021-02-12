@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ReviewController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +21,13 @@ use App\Http\Controllers\MainController;
 //     return view('welcome');
 // });
 
+//Route::get('/', [MainController@'index']); DO 8 VERSII
 Route::get('/', [MainController::class, 'index']);
 Route::get('/contacts', [MainController::class, 'contacts']);
 Route::post('/contacts', [MainController::class, 'getContacts']);
+
+Route::get( '/sale', [StoreController::class,  'sale']);
+//Route::get('/sale', [StoreController::class, 'sale']);
+
+Route::get( '/reviews', [ReviewController::class, 'reviews']);
+Route::post( '/reviews', [ReviewController::class, 'getReviews']);
